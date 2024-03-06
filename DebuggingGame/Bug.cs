@@ -40,4 +40,18 @@ namespace DebuggingGame
             return exterminator.ToLower() == "swat";
         }
     }
+    
+    public class Wasp : Bug
+    {
+        public string Name { get; } = "wasp";
+        public string Move()
+        {
+            return "flying";
+        }
+
+        public bool Kill(string exterminator)
+        {
+            return exterminator.ToLower() == "drown";
+        }
+    }
 }
