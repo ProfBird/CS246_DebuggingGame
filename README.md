@@ -39,3 +39,45 @@ class Fly {
 In this version we add a simple factory class to create the `Bug` objects.
 This isn't a full-blown implementation of the pattern, but we're moving in that direction.
 
+### 
+
+```mermaid
+---
+title: Bug Classes
+---
+classDiagram
+note for Bug "This is the Product interface"
+class Bug {
+    <<interface>>
+  + Name: string
+  + Move(): string
+  + Kill(exterminator: string): bool
+}
+
+note "Cockroach and Fly are ConcreateProduct classes"
+class Cockroach {
+  - Name: string = "cockroach"
+  + Move(): string
+  + Kill(exterminator: string): bool
+}
+
+class Fly {
+  - Name: string = "fly"
+  + Move(): string
+  + Kill(exterminator: string): bool
+}
+
+    Bug <|-- Cockroach
+    Bug <|-- Fly
+    
+    note for BugFactory "This is the ConcreteCreator class"
+    class BugFactory {
+    +GetBug(): Bug
+    +GetRandomBug(): Bug
+    }
+    
+    BugFactory --> Cockroach
+    BugFactory --> Fly
+```
+
+## 
